@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TextHintSeekBar">
+
+        <!-- Expose Android attributes for Custom Seekbar -->
+        <attr name="android:max" />
+        <attr name="android:progress" />
+        <attr name="android:progressTint" />
+        <attr name="android:progressBackgroundTint" />
+        <attr name="android:thumbTint" />
+
+        <!-- Expose Android attributes for Custom TextView -->
+        <attr name="android:textSize" />
+
+        <!-- Expose a custom attribute for TextView -->
+        <attr name="textDrawable" format="integer" />
+        <attr name="textDrawableTint" format="integer" />
+    </declare-styleable>
+</resources>

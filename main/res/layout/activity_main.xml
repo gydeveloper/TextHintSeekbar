@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:texthintseekbar="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.gydeveloper.texthintseekbar.MainActivity">
+
+    <!-- Using custom layout to display seekbar with text hint -->
+    <com.gydeveloper.texthintseekbar.TextHintSeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="10"
+        android:progress="5"
+        android:textSize="20dp"
+        texthintseekbar:textDrawable="@drawable/arrow_pointer"
+        texthintseekbar:textDrawableTint="@android:color/holo_red_light"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+    </com.gydeveloper.texthintseekbar.TextHintSeekBar>
+
+</RelativeLayout>
