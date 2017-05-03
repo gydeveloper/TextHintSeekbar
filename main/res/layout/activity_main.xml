@@ -14,7 +14,8 @@
         android:max="10"
         android:progress="5"
         android:textSize="20dp"
-        texthintseekbar:textDrawable="@drawable/arrow_pointer"
+        texthintseekbar:textColor="@android:color/white"
+        texthintseekbar:textDrawable="@drawable/square_pointer"
         texthintseekbar:textDrawableTint="@android:color/holo_red_light"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true">

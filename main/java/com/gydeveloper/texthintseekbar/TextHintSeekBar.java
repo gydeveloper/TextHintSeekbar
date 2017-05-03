@@ -2,6 +2,7 @@ package com.gydeveloper.texthintseekbar;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -43,6 +44,7 @@ public class TextHintSeekBar extends LinearLayout
         int textSize = a.getDimensionPixelSize(R.styleable.TextHintSeekBar_android_textSize, 0);
         Drawable textDrawableResource = a.getDrawable(R.styleable.TextHintSeekBar_textDrawable);
         int textDrawableTint = a.getInt(R.styleable.TextHintSeekBar_textDrawableTint, -1);
+        int textColor = a.getColor(R.styleable.TextHintSeekBar_textColor, Color.BLACK);
         a.recycle();
 
         setOrientation(LinearLayout.VERTICAL);
@@ -51,6 +53,8 @@ public class TextHintSeekBar extends LinearLayout
         {
             textView.setBackground(textDrawableResource);
         }
+
+        textView.setTextColor(textColor);
 
         if (textDrawableTint != -1) {
             textView.setBackgroundTintList(getContext().getResources().getColorStateList(android.R.color.holo_red_light));
@@ -68,23 +72,10 @@ public class TextHintSeekBar extends LinearLayout
 
     private void updateTextViewPosition(int progress) {
         textView.setText(Integer.toString(progress));
-        double percent = progress / (double) seekBar.getMax();
-        int offset = seekBar.getThumbOffset();
-        int val = (int) Math.round(percent * (seekBar.getWidth() - 2 * offset));
-        int labelWidth = textView.getWidth();
-        float x;
-
-        if (textView.getBackground() == null) {
-            x = offset + seekBar.getX() + val
-                - Math.round(percent * offset)
-                - Math.round(percent * labelWidth/2);
-        } else {
-            int actualWidth = seekBar.getWidth()
-                    - seekBar.getPaddingLeft()
-                    - seekBar.getPaddingRight();
-            x = seekBar.getPaddingLeft() + (actualWidth * seekBar.getProgress()) / seekBar.getMax();
-        }
-
+        int actualWidth = seekBar.getWidth()
+                - seekBar.getPaddingLeft()
+                - seekBar.getPaddingRight();
+        float x = seekBar.getPaddingLeft() + (actualWidth * seekBar.getProgress()) / seekBar.getMax();
         textView.setX(x);
     }
 
